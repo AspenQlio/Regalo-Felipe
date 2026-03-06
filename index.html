@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños</title>
+    <style>
+        :root {
+            --nord0: rgb(46, 52, 64); /* Fondo Oscuro */
+            --nord1: #3b4252; /* Tarjeta */
+            --nord3: #4c566a; /* Detalles */
+            --nord4: #d8dee9; /* Texto Principal */
+            --nord6: #eceff4; /* Texto Resaltado */
+            --nord8: #88c0d0; /* Cyan Nord (Títulos) */
+            --nord14: #a3be8c; /* Verde Nord (Hojas) */
+            --sunflower-yellow: #ebcb8b; /* Amarillo Nord para Girasoles */
+            --sunflower-dark: #bf616a; /* Rojizo Nord para el centro */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--nord0);
+            color: var(--nord4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative; /* Para las decoraciones fijas */
+            overflow-x: hidden; /* Evita scroll horizontal por las flores */
+        }
+
+        /* Decoración de Girasoles en las esquinas superiores */
+        .sunflower-corner {
+            position: absolute;
+            font-size: 5rem;
+            opacity: 0.8;
+            z-index: 0;
+            pointer-events: none; /* No interrumpen los clics */
+        }
+        .top-left { top: -10px; left: -10px; transform: rotate(-15deg); }
+        .top-right { top: -10px; right: -10px; transform: rotate(15deg); }
+
+        /* Pequeño girasol flotante */
+        .floating-flower {
+            position: absolute;
+            font-size: 2rem;
+            bottom: 50px;
+            right: 50px;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: var(--nord1);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+            border: 1px solid var(--nord3);
+            position: relative; /* Para que el contenido esté sobre las flores de fondo */
+            z-index: 1;
+        }
+
+        h1 {
+            color: var(--nord8);
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        /* Decoración sutil en el título */
+        h1::after {
+            content: ' 🌻';
+            color: var(--sunflower-yellow);
+            font-size: 1.2rem;
+            position: absolute;
+            top: -10px;
+            right: -25px;
+        }
+
+        .main-letter {
+            line-height: 1.8;
+            color: var(--nord6);
+            text-align: left;
+            margin-bottom: 30px;
+            border-left: 3px solid var(--nord14); /* Detalle verde Nord */
+            padding-left: 15px;
+        }
+
+        .links-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .card-link {
+            text-decoration: none;
+            background-color: var(--nord3);
+            color: var(--nord8);
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-link:hover {
+            background-color: var(--sunflower-yellow); /* Hover amarillo */
+            color: var(--nord0); /* Texto oscuro al hacer hover */
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(235, 203, 139, 0.3);
+        }
+
+        .footer {
+            margin-top: 40px;
+            color: var(--nord3);
+            font-size: 0.8em;
+            border-top: 1px solid var(--nord3);
+            padding-top: 15px;
+            width: 100%;
+        }
+
+        @media (max-width: 500px) {
+            .links-container { grid-template-columns: 1fr; }
+            .sunflower-corner { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sunflower-corner top-left">🌻</div>
+    <div class="sunflower-corner top-right">🌻</div>
+    <div class="floating-flower">🌻</div>
+
+    <div class="container">
+        <h1>¡Feliz Cumpleaños!</h1>
+        
+        <div class="main-letter">
+            <p>Hola Felipe,</p>
+            <p>He preparado este rincón digital para celebrar tu día (No es mucho pero espero te guste).</p>
+            <p>Aquí tienes algunos detalles hechos especialmente para ti.</p>
+        </div>
+
+        <div class="links-container">
+            <a href="carta1.html" class="card-link">🌻 Carta Especial por tu cumple</a>
+            <a href="carta2.html" class="card-link">🌻 Recuerdo I</a>
+            <a href="carta3.html" class="card-link">🌻 Recuerdo II</a>
+            <a href="carta4.html" class="card-link">🌻 Por si te sientes mal</a>
+        </div>
+
+        <div class="footer">
+            Hecho con ❤️ por Mathias
+        </div>
+    </div>
+
+</body>
+</html>
