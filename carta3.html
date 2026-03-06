@@ -11,6 +11,29 @@
         .back { color: #88c0d0; text-decoration: none; display: block; margin-top: 15px; }
     </style>
 </head>
+<script>
+    function crearGirasol() {
+        const girasol = document.createElement('div');
+        girasol.innerHTML = '🌻';
+        girasol.style.position = 'fixed';
+        girasol.style.top = '-50px';
+        girasol.style.left = Math.random() * 100 + 'vw';
+        girasol.style.fontSize = (Math.random() * 20 + 15) + 'px';
+        girasol.style.zIndex = '9999';
+        girasol.style.pointerEvents = 'none';
+        girasol.style.transition = 'transform 15s linear, top 15s linear'; 
+        document.body.appendChild(girasol);
+        setTimeout(() => {
+            girasol.style.top = '110vh';
+            girasol.style.transform = `translateX(${Math.random() * 200 - 100}px) rotate(${Math.random() * 360}deg)`;
+        }, 100);
+        setTimeout(() => {
+            girasol.remove();
+        }, 15000);
+    }
+    setInterval(crearGirasol, 2000);
+    for(let i=0; i<5; i++) { setTimeout(crearGirasol, i * 500); }
+</script>
 <body>
     <div class="box">
         <img src="foto3.jpeg" alt="Foto">
