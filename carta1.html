@@ -9,15 +9,51 @@
         h2 { color: #2e3440; font-family: sans-serif; }
         p { color: #4c566a; line-height: 1.7; }
         .back { display: block; margin-top: 20px; color: #81a1c1; text-decoration: none; font-family: sans-serif; font-weight: bold; }
+        body {
+        background-color: #2e3440; /* ESTA LÍNEA ES LA QUE ARREGLA EL FONDO BLANCO */
+        color: #d8dee9; /* Texto claro de Nord */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        position: relative; /* Necesario para la lluvia de girasoles */
+        overflow-x: hidden; /* Evita scroll horizontal por las flores */               
+    }
     </style>
 </head>
+<script>
+    function crearGirasol() {
+        const girasol = document.createElement('div');
+        girasol.innerHTML = '🌻';
+        girasol.style.position = 'fixed';
+        girasol.style.top = '-50px';
+        girasol.style.left = Math.random() * 100 + 'vw';
+        girasol.style.fontSize = (Math.random() * 20 + 15) + 'px';
+        girasol.style.zIndex = '9999';
+        girasol.style.pointerEvents = 'none';
+        girasol.style.transition = 'transform 15s linear, top 15s linear'; 
+        document.body.appendChild(girasol);
+        setTimeout(() => {
+            girasol.style.top = '110vh';
+            girasol.style.transform = `translateX(${Math.random() * 200 - 100}px) rotate(${Math.random() * 360}deg)`;
+        }, 100);
+        setTimeout(() => {
+            girasol.remove();
+        }, 15000);
+    }
+    setInterval(crearGirasol, 2000);
+    for(let i=0; i<5; i++) { setTimeout(crearGirasol, i * 500); }
+</script>
 <body>
     <div class="box">
         <h2>Para ti...</h2>
         <p> Para Felipe:
             El aire de este mes tiene un filo extraño, lo sé; se siente como si el calendario estuviera hecho de cristal frío. Pero hoy, en tu cumpleaños, quiero romper esa inercia con el fuego de lo que somos. No escribo para lamentar las sombras, sino para recordarte que tú eres el centro de gravedad de mi mundo, un sol que no pide permiso para brillar.
-            Nuestra historia tiene la geometría de los accidentes afortunados. Pienso en aquella tarde en la pista de hielo: la física conspirando contra nosotros, el suelo reclamándonos con un golpe seco. Tú caíste primero, un colapso de risas y extremidades, y yo te seguí apenas un latido después, como si la gravedad fuera una invitación que no podía rechazar. Fue un desastre perfecto, una sincronía de hematomas que hoy guardo como medallas de nuestra torpeza compartida.
-            O aquel refugio de colores pastel donde el tiempo se nos escapó de las manos. Recuerdo la ironía de ser expulsados de esa cafetería kawaii justo cuando el mundo se sentía más cálido adentro; nos echaron a la calle, sí, pero con las manos llenas de cartas Pokémon, como si el destino nos diera pequeños amuletos de papel para compensar la noche. En ese momento entendí que no importa dónde estemos, siempre encontramos la forma de rescatar algo mágico de lo cotidiano.
+            Nuestra historia tiene la geometría de los accidentes afortunados. Pienso en aquella tarde en el parque cuando patinabamos: la física conspirando contra nosotros, el suelo reclamándonos con un golpe seco. Yo caí primero, un colapso de risas y extremidades, y tu me seguiste apenas un latido después, como si la gravedad fuera una invitación que no podía rechazar. Fue un desastre perfecto, una sincronía de hematomas que hoy guardo como medallas de nuestra torpeza compartida.
+            O aquel cafeteria pastel donde el tiempo se nos escapó de las manos. Recuerdo la ironía de ser expulsados de esa cafetería esa justo cuando el mundo se sentía más cálido adentro; nos echaron por la hora, sí, pero con esas cartas de Pokemon que ahora aprecio con mi alma, como si el destino nos diera pequeños amuletos de carton para compensar la noche. En ese momento entendí que no importa dónde estemos, siempre encontramos la forma de rescatar algo mágico de lo cotidiano.
             Pero el momento que vive bajo mi piel es el de la escalera mecánica. Ese ascenso metálico, el zumbido del motor y la suspensión entre dos pisos. Fue allí, en ese beso que detuvo el movimiento del mundo, donde mi eje se desplazó para siempre. Fue el instante exacto en que me enamoré de ti: una chispa eléctrica en medio de lo ordinario, un reconocimiento absoluto de que mi lugar estaba a tu lado.
             Estos últimos meses han intentado ponernos a prueba, lanzándonos vientos que pretendían desestabilizarnos. Han pasado tantas cosas en tan poco tiempo, un torbellino de sucesos que habrían agotado a cualquiera. Pero míranos. Seguimos aquí, intactos y más sólidos que nunca. El amor no es solo la calma, es la decisión de quedarse cuando el cielo se pone gris, y nosotros hemos decidido quedarnos una y otra vez.
             Estaré aquí para ti, Felipe. No como una sombra, sino como una presencia firme, un faro que no parpadea. Seguimos juntos y seguiremos estándolo, porque lo que hemos construido es más fuerte que cualquier racha de mala suerte.
